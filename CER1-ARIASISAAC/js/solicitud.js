@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     const subcategorias = { 
         plastico: ["Botellas", "Envases", "Bolsas"],
-        papel: ["Cartón", "Papel de oficina", "Periódicos"],
+        papel: ["Carton", "Papel de oficina", "Periodicos"],
         vidrio: ["Botellas", "Frascos", "Vidrios rotos"],
         metales: ["Latas", "Chatarra", "Aluminio"],
-        electronicos: ["Computadoras", "Celulares", "Baterías"]
+        electronicos: ["Computadoras", "Celulares", "Baterias"]
     }
 
     function inicializarMenu() {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function actualizarSubcategorias(opciones) { //actualiza las subcategrosias dependiendo de la categoria
         var select2 = document.getElementById("select2")
         if (select2) {
-            select2.innerHTML = '<option value="">Seleccione una subcategoría</option>'
+            select2.innerHTML = '<option value="">Seleccione una subcategoria</option>'
             opciones.forEach(function(subcat) {
                 var opcion = document.createElement("option")
                 opcion.value = subcat.toLowerCase()
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    function validarCampos() { //valida la itegridad de los datos
+    function validarCampos() { //valida la itegridad de los datos true y false
         var emailInput = document.querySelector('input[name="email"]')
         var nombreInput= document.querySelector('input[name="Nombre"]')
         var direccionInput = document.querySelector('input[name="Direccion"]')
@@ -55,32 +55,32 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         var emailRegex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/ //Expresin pa validar el formato del correo 
         if (!email || !emailRegex.test(email)) {
-            mensajesError.push("Ingrese un correo electrónico válido")
+            mensajesError.push("Ingrese un correo electronico valido")
         }
 
         var nombre = nombreInput ? nombreInput.value : ''
         if (!nombre.trim()) {
-            mensajesError.push("El campo de nombre no puede estar vacío")
+            mensajesError.push("El campo de nombre no puede estar vacio")
         }
 
         var direccion = direccionInput ? direccionInput.value : ''
         if (!direccion.trim()) {
-            mensajesError.push("El campo de dirección no puede estar vacío")
+            mensajesError.push("El campo de direccion no puede estar vacio")
         }
 
         var cantidad = cantidadInput ? cantidadInput.value : ''
         if (!cantidad || isNaN(cantidad) || cantidad <= 0) {
-            mensajesError.push("Ingrese una cantidad válida de residuos")
+            mensajesError.push("Ingrese una cantidad valida de residuos")
         }
 
         var categoria = select1 ? select1.value : ''
         if (!categoria || categoria === "") {
-            mensajesError.push("Seleccione una categoría de residuos")
+            mensajesError.push("Seleccione una categoria de residuos")
         }
 
         var subcategoria = select2 ? select2.value : ''
         if (!subcategoria || subcategoria === "") {
-            mensajesError.push("Seleccione una subcategoría de residuos")
+            mensajesError.push("Seleccione una subcategoria de residuos")
         }
 
         if (mensajesError.length > 0) {
@@ -166,9 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var direccion = document.querySelector('input[name="Direccion"]')
         var cantidad = document.querySelector('input[name="cantidad"]')
         var comentarios = document.querySelector('input[name="comentarios"]')
-        // no es lo mismo ocupar el .querySelector('input[name="email"]')
-        // que el getElementById(email)
-        //el .querySelector busca name
+        
         //console.log("lol: " + document.getElementById('email').value)
         if (select1) {
             select1.value = ''
